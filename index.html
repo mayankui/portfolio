@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayank - UI/UX Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#000000', // True black requested by user
+                        surface: '#111111',    // Very dark grey for cards
+                        accent: '#EAB308',
+                        purple_glow: '#8B5CF6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['"Montserrat Alternates"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat+Alternates:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/split-type"></script>
+</head>
+
+<body class="bg-background text-gray-200 font-sans antialiased overflow-x-hidden">
+
+    <!-- Custom Cursor Follower (Minh Pham Style) -->
+    <div id="cursor-follower" class="hidden md:block"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 pt-6 pb-4 px-8 backdrop-blur-md bg-background/70 border-b border-surface">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold font-heading text-white tracking-widest">MAYANK.</a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                <a href="#about" class="hover:text-white transition-colors">ABOUT</a>
+                <a href="#experience" class="hover:text-white transition-colors">EXPERIENCE</a>
+                <a href="#projects" class="hover:text-white transition-colors">PROJECTS</a>
+                <a href="#contact" class="hover:text-white transition-colors">CONTACT</a>
+            </div>
+            <a href="#contact"
+                class="hidden md:inline-block px-6 py-2 rounded-full holographic-btn text-white font-semibold text-sm">
+                LET'S TALK
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+        class="relative min-h-[100vh] pt-24 pb-16 overflow-hidden bg-background flex flex-col justify-start items-center">
+        <!-- Huge Background Text -->
+        <div class="absolute top-[12%] left-0 w-full text-center z-0 pointer-events-none px-4 flex justify-center mt-8">
+            <!-- Ensure it scales well and tightly wraps the letters -->
+            <h1 class="text-[10vw] md:text-[12vw] xl:text-[240px] leading-tight py-4 px-12 text-transparent bg-clip-text bg-gradient-to-b from-white via-[#e8f0fe] to-[#8c9fbe] tracking-tighter drop-shadow-md whitespace-nowrap mix-blend-plus-lighter opacity-95 animate-[pulse_3s_ease-in-out_infinite]"
+                style="font-family: 'Expressa', 'Montserrat Alternates', sans-serif; font-weight: 600;">
+                HI, I'M MAYANK
+            </h1>
+        </div>
+
+        <div class="relative w-full max-w-[1400px] mx-auto h-[600px] flex justify-center items-center">
+
+            <!-- Center Content: 3D Avatar -->
+            <div class="relative z-10 flex justify-center items-center pointer-events-none">
+                <!-- The image size dictates the center column size -->
+                <img src="/avatar.png" alt="Mayank" id="parallax-avatar"
+                    class="w-[810px] h-[723px] object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.5)] pointer-events-auto transition-transform duration-100 ease-out"
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=800&q=80';">
+            </div>
+
+            <!-- Left Content: UI/UX Designer string -->
+            <div
+                class="absolute left-8 md:left-12 top-[45%] md:top-[50%] -translate-y-1/2 z-30 w-full max-w-[340px] pointer-events-none">
+                <div class="space-y-7 pt-60 text-left pointer-events-auto">
+                    <!-- Adjusted for exact Montserrat alternatives boldness -->
+                    <h2 class="reveal-type text-4xl md:text-5xl font-heading text-white tracking-tight font-semibold"
+                        style="text-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                        UI/UX Designer
+                        <p class="reveal-block text-[15px] text-gray-200 leading-relaxed font-sans pr-4"
+                            style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+                            I blend user empathy with business goals to create solutions that don't just look good but
+                            perform, turning complex workflows into simple, seamless experiences.
+                        </p>
+                    </h2>
+
+                </div>
+            </div>
+
+            <!-- Right Content: Contact Me Button -->
+            <div class="absolute right-8 md:right-16 top-[55%] md:top-[60%] -translate-y-1/2 z-30 pointer-events-auto">
+                <a href="#contact"
+                    class="inline-block transform -rotate-[12deg] hover:rotate-[0deg] hover:scale-105 transition-all duration-300">
+                    <!-- Thick white border ring -->
+                    <div class="p-[4px] bg-white rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+                        <!-- Holographic multi-color inner -->
+                        <div
+                            class="holographic-btn bg-gradient-to-tr from-[#381691] via-[#d61992] to-[#fcd028] rounded-[1.8rem] px-10 py-5 flex items-center justify-center">
+                            <span
+                                class="text-white font-sans font-bold text-xl tracking-wide drop-shadow-lg whitespace-nowrap">CONTACT
+                                ME</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Marquee Banner Section (Massive Text) - Placed behind Avatar -->
+        <div
+            class="absolute -bottom-6 left-0 w-full overflow-visible flex whitespace-nowrap z-0 opacity-100 pointer-events-none mix-blend-screen">
+            <div class="marquee-track-massive flex items-center w-max">
+                <script>
+                    const starSVG2 = `<svg class="w-12 h-12 mx-6 md:w-16 md:h-16 md:mx-10 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C12 6.627 17.373 12 24 12C17.373 12 12 17.373 12 24C12 17.373 6.627 12 0 12C6.627 12 12 6.627 12 0Z" fill="url(#gemini_paint2)"/>
+                    <defs>
+                        <linearGradient id="gemini_paint2" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#8B5CF6"/>
+                        <stop offset="0.5" stop-color="#EAB308"/>
+                        <stop offset="1" stop-color="#38BDF8"/>
+                        </linearGradient>
+                    </defs>
+                    </svg>`;
+
+                    // Content for the marquee
+                    const marqueeItems = [
+                        "UI/UX DESIGN",
+                        "WEB DEVELOPMENT",
+                        "ART DIRECTION",
+                        "MOTION GRAPHICS"
+                    ];
+
+                    // Duplicate items multiple times to ensure enough content for smooth scrolling
+                    for (let i = 0; i < 4; i++) {
+                        marqueeItems.forEach(item => {
+                            document.write(`
+                                <h2 class="text-6xl md:text-8xl lg:text-[120px] font-heading font-bold tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 opacity-100 mx-8 md:mx-12 shrink-0 overflow-visible" style="line-height: 1.2; padding-bottom: 0.2em;">
+                                    ${item}
+                                </h2>
+                                ${starSVG2}
+                            `);
+                        });
+                    }
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-8 bg-background relative">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            <h2 class="reveal-type text-4xl md:text-6xl font-heading font-bold text-white">Design is more than just
+                pixels.</h2>
+            <p class="reveal-block text-xl md:text-3xl text-gray-400 leading-relaxed font-light">
+                It's about understanding human behavior and creating systems that empower users. My philosophy centers
+                around <span class="text-white font-medium">empathy, simplicity,</span> and <span
+                    class="text-white font-medium">purpose-driven</span> aesthetics.
+            </p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 px-8 bg-background relative border-t border-surface">
+        <div class="max-w-5xl mx-auto">
+            <!-- Section Header -->
+            <div class="mb-12 max-w-2xl">
+                <h2 class="reveal-type text-4xl md:text-5xl font-heading font-bold text-white mb-6">Work Experience</h2>
+                <p class="reveal-block text-lg text-gray-400 leading-relaxed font-sans">
+                    A detailed overview of my professional experience, showcasing real-world projects, design expertise,
+                    and contributions to building user-friendly, scalable digital products.
+                </p>
+            </div>
+
+            <!-- Experience Card -->
+            <div
+                class="bg-surface/50 border border-surface rounded-3xl p-8 md:p-10 shadow-2xl transition-transform duration-300 hover:-translate-y-1 relative overflow-hidden backdrop-blur-sm">
+                <!-- Card Header -->
+                <div
+                    class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 border-b border-surface pb-8">
+                    <div class="flex items-center gap-5">
+                        <!-- Logo -->
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-[#1C64F2] flex items-center justify-center shadow-lg shadow-blue-500/20 shrink-0">
+                            <span class="text-white font-bold text-3xl font-heading tracking-tighter"
+                                style="font-family: 'Inter', sans-serif;">W</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Webkul Software Pvt. Ltd</h3>
+                            <div class="flex items-center gap-2 text-sm text-gray-400 font-medium">
+                                <span
+                                    class="bg-[#1f1338] px-3 py-1 rounded-full border border-surface text-xs">Full-time</span>
+                                <span>•</span>
+                                <span class="bg-[#1f1338] px-3 py-1 rounded-full border border-surface text-xs">2.7+
+                                    yrs</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Location Badge -->
+                    <div
+                        class="flex items-center gap-2 bg-[#1f1338] px-4 py-2 rounded-full border border-surface text-xs text-gray-300 font-medium shrink-0">
+                        <svg class="w-3.5 h-3.5 text-[#38bdf8]" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Noida, India
+                    </div>
+                </div>
+
+                <!-- Role Details -->
+                <div>
+                    <!-- Role Header -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-2 h-2 rounded-full bg-[#38bdf8] shadow-[0_0_8px_rgba(56,189,248,0.8)]"></div>
+                        <h4 class="text-xl font-bold text-white tracking-wide">UI Designer</h4>
+                        <span
+                            class="bg-[#38bdf8] text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase">09/2023
+                            — Present</span>
+                    </div>
+
+                    <!-- Responsibilities -->
+                    <ul class="space-y-4 text-gray-300 font-sans text-[15px]">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#38bdf8] mt-0.5 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="leading-relaxed">Designed scalable B2B/B2C interfaces for eCommerce, ERP, CRM,
+                                and booking platforms.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#38bdf8] mt-0.5 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="leading-relaxed">Created mobile apps, high-conversion landing pages, and modern
+                                web interfaces.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#38bdf8] mt-0.5 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="leading-relaxed">Contributed to Open Source platforms including Bagisto, Krayin
+                                CRM, and AureusERP.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#38bdf8] mt-0.5 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="leading-relaxed">Built fully responsive WordPress pages to optimize usability
+                                and performance.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#38bdf8] mt-0.5 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="leading-relaxed">Leveraged AI tools like ChatGPT and Claude for advanced UX
+                                research and workflow optimization.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Experience Card 2: Destination Experts -->
+            <div
+                class="bg-surface/50 border border-surface rounded-3xl p-8 md:p-10 shadow-2xl transition-transform duration-300 hover:-translate-y-1 relative overflow-hidden backdrop-blur-sm mt-8">
+                <!-- Card Header -->
+                <div
+                    class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 border-b border-surface pb-8">
+                    <div class="flex items-center gap-5">
+                        <!-- Logo -->
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-[#EAB308] flex items-center justify-center shadow-lg shadow-yellow-500/20 shrink-0">
+                            <span class="text-white font-bold text-3xl font-heading tracking-tighter"
+                                style="font-family: 'Inter', sans-serif;">D</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Destination Experts</h3>
+                            <div class="flex items-center gap-2 text-sm text-gray-400 font-medium">
+                                <span
+                                    class="bg-[#1f1338] px-3 py-1 rounded-full border border-surface text-xs">Internship</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role Details -->
+                <div>
+                    <!-- Role Header -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-2 h-2 rounded-full bg-[#EAB308] shadow-[0_0_8px_rgba(234,179,8,0.8)]"></div>
+                        <h4 class="text-xl font-bold text-white tracking-wide">Graphic Designer</h4>
+                    </div>
+
+                    <!-- Responsibilities -->
+                    <ul class="space-y-4 text-gray-300 font-sans text-[15px]">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#EAB308] mt-0.5 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="leading-relaxed">Designed engaging graphics and marketing materials to support
+                                brand initiatives.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-[#EAB308] mt-0.5 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="leading-relaxed">Collaborated with the team to conceptualize and execute visual
+                                assets for digital campaigns.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process Section -->
+    <section id="process" class="py-24 px-8 bg-background relative border-t border-surface">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 max-w-3xl">
+                <h2 class="reveal-type text-4xl md:text-5xl font-heading font-bold text-white mb-6">Design Process</h2>
+                <p class="reveal-block text-lg text-gray-400 leading-relaxed font-sans">
+                    My process is a blend of creative exploration and structured problem-solving, ensuring every pixel
+                    serves a purpose.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-surface/30 border border-surface p-8 rounded-3xl hover:bg-surface/50 transition-colors">
+                    <div class="text-[#8B5CF6] font-heading font-bold text-5xl opacity-20 mb-4">01</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Understand</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Align on problem statement, business goals,
+                        constraints, and success metrics with stakeholders.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-surface/30 border border-surface p-8 rounded-3xl hover:bg-surface/50 transition-colors">
+                    <div class="text-[#EAB308] font-heading font-bold text-5xl opacity-20 mb-4">02</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Research</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Understand users, pain points, and context through
+                        interviews, surveys, and data analysis.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-surface/30 border border-surface p-8 rounded-3xl hover:bg-surface/50 transition-colors">
+                    <div class="text-[#38BDF8] font-heading font-bold text-5xl opacity-20 mb-4">03</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Define</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Clearly define user needs, core problems, and
+                        project goals based on research insights.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="bg-surface/30 border border-surface p-8 rounded-3xl hover:bg-surface/50 transition-colors">
+                    <div class="text-[#EC4899] font-heading font-bold text-5xl opacity-20 mb-4">04</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Ideate</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Brainstorm creative solutions, user flows, and
+                        information architecture.</p>
+                </div>
+                <!-- Step 5 -->
+                <div class="bg-surface/30 border border-surface p-8 rounded-3xl hover:bg-surface/50 transition-colors">
+                    <div class="text-[#8B5CF6] font-heading font-bold text-5xl opacity-20 mb-4">05</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Wireframe</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Create low-fidelity layouts to structure content
+                        and interactions.</p>
+                </div>
+                <!-- Step 6 -->
+                <div class="bg-surface/30 border border-surface p-8 rounded-3xl hover:bg-surface/50 transition-colors">
+                    <div class="text-[#EAB308] font-heading font-bold text-5xl opacity-20 mb-4">06</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Prototype</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Build high-fidelity interactive designs to simulate
+                        the final product.</p>
+                </div>
+                <!-- Step 7 -->
+                <div class="bg-surface/30 border border-surface p-8 rounded-3xl hover:bg-surface/50 transition-colors">
+                    <div class="text-[#38BDF8] font-heading font-bold text-5xl opacity-20 mb-4">07</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Test & Iterate</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Validate with real users, gather feedback, and
+                        refine the design.</p>
+                </div>
+                <!-- Step 8 -->
+                <div class="bg-surface/30 border border-surface p-8 rounded-3xl hover:bg-surface/50 transition-colors">
+                    <div class="text-[#EC4899] font-heading font-bold text-5xl opacity-20 mb-4">08</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Handoff</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Prepare design specs, assets, and documentation for
+                        seamless developer implementation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-8 bg-[#111018]">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="reveal-type text-3xl md:text-5xl font-heading font-bold text-white mb-16">Selected Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Project 1 -->
+                <a href="https://www.behance.net/gallery/188496799/Ecommerce-Bagisto" target="_blank"
+                    class="group cursor-pointer block">
+                    <div
+                        class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
+                            alt="Bagisto Case Study"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Bagisto Case Study</h3>
+                    <p class="text-gray-400">Open-source eCommerce store built on Laravel and Vue.js for modern,
+                        scalable online stores.</p>
+                </a>
+
+                <!-- Project 2 -->
+                <a href="https://delivery.bagisto.com/demo.html" target="_blank"
+                    class="group cursor-pointer block md:mt-16">
+                    <div
+                        class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1616423641402-ba59d045d9e5?auto=format&fit=crop&w=800&q=80"
+                            alt="Bagisto Delivery Boy"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Bagisto Delivery Boy</h3>
+                    <p class="text-gray-400">Mobile application for delivery management, seamlessly integrated with the
+                        Bagisto ecosystem.</p>
+                </a>
+
+                <!-- Project 3 -->
+                <a href="https://wpdemo.webkul.com/woocommerce-marketplace/" target="_blank"
+                    class="group cursor-pointer block">
+                    <div
+                        class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=800&q=80"
+                            alt="B2C Marketplace"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">B2C Marketplace</h3>
+                    <p class="text-gray-400">Designed a B2C marketplace with seller dashboards and intuitive shopping
+                        interfaces.</p>
+                </a>
+
+                <!-- Project 4 -->
+                <a href="https://shantanu-nautiyal-portfolio.vercel.app/projects/food-ordering-app" target="_blank"
+                    class="group cursor-pointer block md:mt-16">
+                    <div
+                        class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80"
+                            alt="Food Ordering App"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Food Ordering App</h3>
+                    <p class="text-gray-400">A web app to browse restaurants, order food, and manage your account
+                        easily.</p>
+                </a>
+
+                <!-- Project 5 -->
+                <a href="https://shantanu-nautiyal-portfolio.vercel.app/projects/forkify" target="_blank"
+                    class="group cursor-pointer block">
+                    <div
+                        class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=800&q=80"
+                            alt="Forkify — Recipes"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Forkify — Recipes</h3>
+                    <p class="text-gray-400">A Web App to search recipes using the Forkify-API — over 1,000,000 recipes.
+                    </p>
+                </a>
+
+                <!-- Project 6 -->
+                <a href="https://shantanunautiyal.github.io/Weather-Web-App/" target="_blank"
+                    class="group cursor-pointer block md:mt-16">
+                    <div
+                        class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1561484930-998b6a7b22e8?auto=format&fit=crop&w=800&q=80"
+                            alt="Weather Web App"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Weather Web App</h3>
+                    <p class="text-gray-400">A weather application that utilizes the OpenWeatherMap API to display
+                        weather.</p>
+                </a>
+
+                <!-- Project 7 -->
+                <a href="https://dribbble.com/shots/22268356-Coffee-Roasters" target="_blank"
+                    class="group cursor-pointer block">
+                    <div
+                        class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80"
+                            alt="Coffee Roaster"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Coffee Roaster</h3>
+                    <p class="text-gray-400">User-centric landing page for a coffee roaster brand with seamless
+                        navigation.</p>
+                </a>
+
+                <!-- Project 8 -->
+                <a href="https://shantanu-nautiyal-portfolio.vercel.app/projects/pov-bank" target="_blank"
+                    class="group cursor-pointer block md:mt-16">
+                    <div
+                        class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=800&q=80"
+                            alt="POV Bank"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">POV Bank</h3>
+                    <p class="text-gray-400">Demo online banking platform with preset login to explore core banking
+                        features.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="py-24 px-8 bg-background border-t border-surface relative overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] from-purple_glow/10 via-transparent to-transparent -z-10">
+        </div>
+        <div class="max-w-7xl mx-auto text-center space-y-10">
+            <h2 class="text-5xl md:text-7xl font-heading font-bold text-white tracking-tight">Let's create something
+                <br> extraordinary.
+            </h2>
+            <div class="pt-8">
+                <a href="mailto:hello@example.com"
+                    class="text-2xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 font-bold hover:opacity-80 transition-opacity">hello@mayankdesign.com</a>
+            </div>
+            <div class="flex justify-center space-x-6 pt-12">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Dribbble</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

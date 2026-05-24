@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap');
+
+/* Utilities for holographic buttons and glow */
+.holographic-btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.holographic-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg);
+    transition: all 0.6s ease;
+}
+
+.holographic-btn:hover::before {
+    left: 150%;
+}
+
+.holographic-btn:hover {
+    box-shadow: 0 8px 32px 0 rgba(236, 72, 153, 0.4);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Marquee infinite scroll animation */
+.marquee-track {
+    animation: scroll 25s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Massive Marquee infinite scroll animation */
+.marquee-track-massive {
+    animation: scroll-massive 45s linear infinite;
+}
+
+@keyframes scroll-massive {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        /* Adjusted for the larger content size */
+        transform: translateX(-50%);
+    }
+}
+
+/* Scroll Reveal Text Animation (Minh Pham Style) */
+.line {
+    overflow: hidden;
+    padding-bottom: 0.1em;
+    /* Prevent clipping descenders */
+}
+
+.word {
+    transform: translateY(115%);
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: bottom;
+    will-change: transform, opacity;
+}
+
+.reveal-active .word {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Scroll Reveal Block Animation */
+.reveal-block {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-block.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom Cursor Follower (Minh Pham Style) */
+#cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background-color: #8b5cf6;
+    /* Purple glow */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: screen;
+    transform: translate(-150px, -150px);
+    will-change: transform;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.3s ease;
+    opacity: 1;
+}
+
+/* Expand when hovering over text */
+#cursor-follower.expanded {
+    width: 150px;
+    height: 150px;
+}
