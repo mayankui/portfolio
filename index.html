@@ -37,9 +37,10 @@
     <div id="cursor-follower" class="hidden md:block"></div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 pt-6 pb-4 px-8 backdrop-blur-md bg-background/70 border-b border-surface">
+    <nav class="fixed w-full z-50 top-0 pt-4 pb-4 px-6 md:px-8 backdrop-blur-md bg-background/70 border-b border-surface">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold font-heading text-white tracking-widest">MAYANK.</a>
+            <a href="#" class="text-xl md:text-2xl font-bold font-heading text-white tracking-widest">MAYANK.</a>
+            <!-- Desktop Nav -->
             <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
                 <a href="#about" class="hover:text-white transition-colors">ABOUT</a>
                 <a href="#experience" class="hover:text-white transition-colors">EXPERIENCE</a>
@@ -50,73 +51,104 @@
                 class="hidden md:inline-block px-6 py-2 rounded-full holographic-btn text-white font-semibold text-sm">
                 LET'S TALK
             </a>
+            <!-- Hamburger Button (Mobile) -->
+            <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 z-50" aria-label="Toggle Menu">
+                <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden flex-col items-center gap-6 py-8 text-sm font-medium tracking-wide border-t border-surface mt-4">
+            <a href="#about" class="mobile-menu-link hover:text-white transition-colors">ABOUT</a>
+            <a href="#experience" class="mobile-menu-link hover:text-white transition-colors">EXPERIENCE</a>
+            <a href="#projects" class="mobile-menu-link hover:text-white transition-colors">PROJECTS</a>
+            <a href="#contact" class="mobile-menu-link hover:text-white transition-colors">CONTACT</a>
+            <a href="#contact" class="px-6 py-2 rounded-full holographic-btn text-white font-semibold text-sm mt-2">LET'S TALK</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section
-        class="relative min-h-[100vh] pt-24 pb-16 overflow-hidden bg-background flex flex-col justify-start items-center">
+    <section class="relative min-h-[100vh] pt-20 md:pt-24 pb-16 overflow-hidden bg-background flex flex-col justify-start items-center">
+
         <!-- Huge Background Text -->
-        <div class="absolute top-[12%] left-0 w-full text-center z-0 pointer-events-none px-4 flex justify-center mt-8">
-            <!-- Ensure it scales well and tightly wraps the letters -->
-            <h1 class="text-[10vw] md:text-[12vw] xl:text-[240px] leading-tight py-4 px-12 text-transparent bg-clip-text bg-gradient-to-b from-white via-[#e8f0fe] to-[#8c9fbe] tracking-tighter drop-shadow-md whitespace-nowrap mix-blend-plus-lighter opacity-95 animate-[pulse_3s_ease-in-out_infinite]"
+        <div class="absolute top-[8%] sm:top-[10%] md:top-[12%] left-0 w-full text-center z-0 pointer-events-none px-2 flex justify-center">
+            <h1 class="text-[13vw] sm:text-[11vw] md:text-[10vw] xl:text-[180px] 2xl:text-[220px] leading-tight py-2 text-transparent bg-clip-text bg-gradient-to-b from-white via-[#e8f0fe] to-[#8c9fbe] tracking-tighter drop-shadow-md mix-blend-plus-lighter opacity-95 animate-[pulse_3s_ease-in-out_infinite] whitespace-nowrap"
                 style="font-family: 'Expressa', 'Montserrat Alternates', sans-serif; font-weight: 600;">
                 HI, I'M MAYANK
             </h1>
         </div>
 
-        <div class="relative w-full max-w-[1400px] mx-auto h-[600px] flex justify-center items-center">
+        <!-- Mobile Layout (stacked) -->
+        <div class="flex flex-col items-center w-full px-6 pt-24 md:hidden z-10 gap-6">
+            <!-- Avatar -->
+            <div class="relative flex justify-center">
+                <img src="/avatar.png" alt="Mayank" id="parallax-avatar-mobile"
+                    class="w-[280px] sm:w-[360px] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=800&q=80';">
+            </div>
+            <!-- Text -->
+            <div class="text-center space-y-4">
+                <h2 class="text-3xl sm:text-4xl font-heading text-white tracking-tight font-semibold">UI/UX Designer</h2>
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-sm mx-auto">
+                    I blend user empathy with business goals to create solutions that don't just look good but
+                    perform, turning complex workflows into simple, seamless experiences.
+                </p>
+            </div>
+            <!-- CTA Button -->
+            <a href="mailto:aroramayank9900@gmail.com" class="inline-block transform hover:scale-105 transition-all duration-300 mt-2">
+                <div class="p-[3px] bg-white rounded-[2rem] shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                    <div class="holographic-btn bg-gradient-to-tr from-[#381691] via-[#d61992] to-[#fcd028] rounded-[1.8rem] px-8 py-4 flex items-center justify-center">
+                        <span class="text-white font-sans font-bold text-base tracking-wide drop-shadow-lg">CONTACT ME</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Desktop Layout (absolute positioned) -->
+        <div class="relative w-full max-w-[1400px] mx-auto hidden md:flex justify-center items-center" style="height: clamp(500px, 55vw, 700px);">
 
             <!-- Center Content: 3D Avatar -->
             <div class="relative z-10 flex justify-center items-center pointer-events-none">
-                <!-- The image size dictates the center column size -->
                 <img src="/avatar.png" alt="Mayank" id="parallax-avatar"
-                    class="w-[810px] h-[723px] object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.5)] pointer-events-auto transition-transform duration-100 ease-out"
-                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=800&q=80';">
+                    class="w-[clamp(400px,55vw,810px)] object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.5)] pointer-events-auto transition-transform duration-100 ease-out"
+                    style="height: clamp(360px,49vw,723px);"
+                    onerror="this.onerror=null; this.src='https://i.ibb.co/tMR3NYzy/avatar.png';">
             </div>
 
-            <!-- Left Content: UI/UX Designer string -->
-            <div
-                class="absolute left-8 md:left-12 top-[45%] md:top-[50%] -translate-y-1/2 z-30 w-full max-w-[340px] pointer-events-none">
-                <div class="space-y-7 pt-60 text-left pointer-events-auto">
-                    <!-- Adjusted for exact Montserrat alternatives boldness -->
-                    <h2 class="reveal-type text-4xl md:text-5xl font-heading text-white tracking-tight font-semibold"
+            <!-- Left Content -->
+            <div class="absolute left-4 lg:left-12 top-1/2 -translate-y-1/2 z-30 max-w-[260px] lg:max-w-[340px]">
+                <div class="space-y-4 pt-32 lg:pt-56 text-left">
+                    <h2 class="reveal-type text-3xl lg:text-4xl xl:text-5xl font-heading text-white tracking-tight font-semibold"
                         style="text-shadow: 0 4px 10px rgba(0,0,0,0.5);">
                         UI/UX Designer
-                        <p class="reveal-block text-[15px] text-gray-200 leading-relaxed font-sans pr-4"
-                            style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-                            I blend user empathy with business goals to create solutions that don't just look good but
-                            perform, turning complex workflows into simple, seamless experiences.
-                        </p>
                     </h2>
-
+                    <p class="reveal-block text-[13px] lg:text-[15px] text-gray-200 leading-relaxed font-sans"
+                        style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+                        I blend user empathy with business goals to create solutions that don't just look good but
+                        perform, turning complex workflows into simple, seamless experiences.
+                    </p>
                 </div>
             </div>
 
             <!-- Right Content: Contact Me Button -->
-            <div class="absolute right-8 md:right-16 top-[55%] md:top-[60%] -translate-y-1/2 z-30 pointer-events-auto">
+            <div class="absolute right-4 lg:right-16 top-[55%] lg:top-[60%] -translate-y-1/2 z-30">
                 <a href="#contact"
                     class="inline-block transform -rotate-[12deg] hover:rotate-[0deg] hover:scale-105 transition-all duration-300">
-                    <!-- Thick white border ring -->
                     <div class="p-[4px] bg-white rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
-                        <!-- Holographic multi-color inner -->
-                        <div
-                            class="holographic-btn bg-gradient-to-tr from-[#381691] via-[#d61992] to-[#fcd028] rounded-[1.8rem] px-10 py-5 flex items-center justify-center">
-                            <span
-                                class="text-white font-sans font-bold text-xl tracking-wide drop-shadow-lg whitespace-nowrap">CONTACT
-                                ME</span>
+                        <div class="holographic-btn bg-gradient-to-tr from-[#381691] via-[#d61992] to-[#fcd028] rounded-[1.8rem] px-6 lg:px-10 py-4 lg:py-5 flex items-center justify-center">
+                            <span class="text-white font-sans font-bold text-base lg:text-xl tracking-wide drop-shadow-lg whitespace-nowrap">CONTACT ME</span>
                         </div>
                     </div>
                 </a>
             </div>
         </div>
 
-        <!-- Marquee Banner Section (Massive Text) - Placed behind Avatar -->
-        <div
-            class="absolute -bottom-6 left-0 w-full overflow-visible flex whitespace-nowrap z-0 opacity-100 pointer-events-none mix-blend-screen">
+        <!-- Marquee Banner -->
+        <div class="absolute -bottom-6 left-0 w-full overflow-visible flex whitespace-nowrap z-0 opacity-100 pointer-events-none mix-blend-screen">
             <div class="marquee-track-massive flex items-center w-max">
                 <script>
-                    const starSVG2 = `<svg class="w-12 h-12 mx-6 md:w-16 md:h-16 md:mx-10 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    const starSVG2 = `<svg class="w-8 h-8 mx-4 md:w-12 md:h-12 md:mx-6 lg:w-16 lg:h-16 lg:mx-10 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 0C12 6.627 17.373 12 24 12C17.373 12 12 17.373 12 24C12 17.373 6.627 12 0 12C6.627 12 12 6.627 12 0Z" fill="url(#gemini_paint2)"/>
                     <defs>
                         <linearGradient id="gemini_paint2" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
@@ -126,24 +158,11 @@
                         </linearGradient>
                     </defs>
                     </svg>`;
-
-                    // Content for the marquee
-                    const marqueeItems = [
-                        "UI/UX DESIGN",
-                        "WEB DEVELOPMENT",
-                        "ART DIRECTION",
-                        "MOTION GRAPHICS"
-                    ];
-
-                    // Duplicate items multiple times to ensure enough content for smooth scrolling
+                    const marqueeItems = ["UI/UX DESIGN","HUMAN CENTERED","ILLUSTRATIONS","WIREFRAMES"];
                     for (let i = 0; i < 4; i++) {
                         marqueeItems.forEach(item => {
                             document.write(`
-                                <h2 class="text-6xl md:text-8xl lg:text-[120px] font-heading font-bold tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 opacity-100 mx-8 md:mx-12 shrink-0 overflow-visible" style="line-height: 1.2; padding-bottom: 0.2em;">
-                                    ${item}
-                                </h2>
-                                ${starSVG2}
-                            `);
+                                <h2 class="text-4xl sm:text-6xl md:text-8xl lg:text-[100px] font-heading font-bold tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 opacity-100 mx-6 md:mx-10 shrink-0 overflow-visible" style="line-height:1.2;padding-bottom:0.2em;">${item}</h2>${starSVG2}`);
                         });
                     }
                 </script>
@@ -161,6 +180,78 @@
                 around <span class="text-white font-medium">empathy, simplicity,</span> and <span
                     class="text-white font-medium">purpose-driven</span> aesthetics.
             </p>
+        </div>
+    </section>
+
+    <!-- What I Bring to the Table Section -->
+    <section id="value" class="py-24 px-8 bg-background relative border-t border-surface">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="mb-16 max-w-3xl">
+                <h2 class="reveal-type text-4xl md:text-5xl font-heading font-bold text-white mb-6">What I Bring To The Table</h2>
+                <p class="reveal-block text-lg text-gray-400 leading-relaxed font-sans">
+                    Fusing visual excellence with strategic design thinking to build interfaces that feel premium and drive actual business results.
+                </p>
+            </div>
+
+            <!-- Value Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-surface/30 border border-surface rounded-3xl p-8 hover:border-purple_glow/50 transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute -right-16 -top-16 w-36 h-36 bg-[#8B5CF6]/10 rounded-full blur-3xl group-hover:bg-[#8B5CF6]/20 transition-colors"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 flex items-center justify-center mb-6 text-[#8B5CF6]">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Product Thinking & Strategy</h3>
+                    <p class="text-gray-400 text-[15px] leading-relaxed">
+                        I look beyond visual assets to identify core user motivations. By aligning user research with key product indicators, I design workflows that increase conversion rates, retention, and long-term user satisfaction.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-surface/30 border border-surface rounded-3xl p-8 hover:border-accent/50 transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute -right-16 -top-16 w-36 h-36 bg-[#EAB308]/10 rounded-full blur-3xl group-hover:bg-[#EAB308]/20 transition-colors"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-[#EAB308]/10 border border-[#EAB308]/20 flex items-center justify-center mb-6 text-[#EAB308]">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">High-Fidelity UI Design</h3>
+                    <p class="text-gray-400 text-[15px] leading-relaxed">
+                        Crafting state-of-the-art interactive models with clean layout structures, harmonious color hierarchies, and elegant animations. Specializing in vibrant dark modes, subtle glassmorphism, and pixel-perfect clarity.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-surface/30 border border-surface rounded-3xl p-8 hover:border-[#38BDF8]/50 transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute -right-16 -top-16 w-36 h-36 bg-[#38BDF8]/10 rounded-full blur-3xl group-hover:bg-[#38BDF8]/20 transition-colors"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-[#38BDF8]/10 border border-[#38BDF8]/20 flex items-center justify-center mb-6 text-[#38BDF8]">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Robust Figma Design Systems</h3>
+                    <p class="text-gray-400 text-[15px] leading-relaxed">
+                        Establishing atomic design libraries, standardized typography models, and dynamic responsive constraints. Ensuring full accessibility compliance (WCAG) and smooth component overrides for fast-scaling platforms.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-surface/30 border border-surface rounded-3xl p-8 hover:border-pink-500/50 transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute -right-16 -top-16 w-36 h-36 bg-pink-500/10 rounded-full blur-3xl group-hover:bg-pink-500/20 transition-colors"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center mb-6 text-pink-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Developer Synergy & Collaboration</h3>
+                    <p class="text-gray-400 text-[15px] leading-relaxed">
+                        Bridging the gap between creative vision and active code. I possess deep knowledge of responsive layouts, layout grids, HTML/CSS rules, and UI constraints, making developer handoffs efficient and frictionless.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -404,7 +495,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-24 px-8 bg-[#111018]">
+    <section id="projects" class="py-24 px-8 bg-[#000000]">
         <div class="max-w-7xl mx-auto">
             <h2 class="reveal-type text-3xl md:text-5xl font-heading font-bold text-white mb-16">Selected Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -414,110 +505,102 @@
                     <div
                         class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
                         <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
-                            alt="Bagisto Case Study"
+                            alt="Bagisto eCommerce UI/UX Case Study"
                             class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Bagisto Case Study</h3>
-                    <p class="text-gray-400">Open-source eCommerce store built on Laravel and Vue.js for modern,
-                        scalable online stores.</p>
+                    <h3 class="text-2xl font-bold text-white mb-2">Bagisto eCommerce UI/UX Case Study</h3>
+                    <p class="text-gray-400">Complete visual redesign of the open-source Laravel eCommerce platform. Streamlined the multi-step checkout flow, designed responsive product catalog views, and created an intuitive vendor dashboard layout.</p>
                 </a>
 
                 <!-- Project 2 -->
-                <a href="https://delivery.bagisto.com/demo.html" target="_blank"
+                <a href="https://dribbble.com/webkul" target="_blank"
                     class="group cursor-pointer block md:mt-16">
                     <div
                         class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
-                        <img src="https://images.unsplash.com/photo-1616423641402-ba59d045d9e5?auto=format&fit=crop&w=800&q=80"
-                            alt="Bagisto Delivery Boy"
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                            alt="Krayin CRM SaaS Design"
                             class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Bagisto Delivery Boy</h3>
-                    <p class="text-gray-400">Mobile application for delivery management, seamlessly integrated with the
-                        Bagisto ecosystem.</p>
+                    <h3 class="text-2xl font-bold text-white mb-2">Krayin CRM SaaS Platform</h3>
+                    <p class="text-gray-400">UX/UI overhaul of an enterprise customer relationship manager. Simplified contact pipelines, redesigned activity streams, and built drag-and-drop lead boards to minimize operational friction.</p>
                 </a>
 
                 <!-- Project 3 -->
-                <a href="https://wpdemo.webkul.com/woocommerce-marketplace/" target="_blank"
+                <a href="https://dribbble.com/webkul" target="_blank"
                     class="group cursor-pointer block">
                     <div
                         class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
-                        <img src="https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?auto=format&fit=crop&w=800&q=80"
-                            alt="B2C Marketplace"
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
+                            alt="QloApps Hotel Reservation System"
                             class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">B2C Marketplace</h3>
-                    <p class="text-gray-400">Designed a B2C marketplace with seller dashboards and intuitive shopping
-                        interfaces.</p>
+                    <h3 class="text-2xl font-bold text-white mb-2">QloApps Hotel Booking Engine</h3>
+                    <p class="text-gray-400">A user-centered reservation dashboard concept. Streamlined room filtering mechanics, unified the guest booking journey, and optimized mobile-first checkout screens to improve conversions.</p>
                 </a>
 
                 <!-- Project 4 -->
-                <a href="https://shantanu-nautiyal-portfolio.vercel.app/projects/food-ordering-app" target="_blank"
+                <a href="https://dribbble.com/webkul" target="_blank"
                     class="group cursor-pointer block md:mt-16">
                     <div
                         class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80"
-                            alt="Food Ordering App"
+                        <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80"
+                            alt="Bagisto Delivery Boy App"
                             class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Food Ordering App</h3>
-                    <p class="text-gray-400">A web app to browse restaurants, order food, and manage your account
-                        easily.</p>
+                    <h3 class="text-2xl font-bold text-white mb-2">Bagisto Delivery Boy App</h3>
+                    <p class="text-gray-400">End-to-end iOS & Android app UI/UX designed for riders. Created an accessible, one-handed navigation UI, real-time map integration, and highly visible dark mode themes for nighttime operations.</p>
                 </a>
 
                 <!-- Project 5 -->
-                <a href="https://shantanu-nautiyal-portfolio.vercel.app/projects/forkify" target="_blank"
+                <a href="https://dribbble.com/webkul" target="_blank"
                     class="group cursor-pointer block">
                     <div
                         class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
-                        <img src="https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&w=800&q=80"
-                            alt="Forkify — Recipes"
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=800&q=80"
+                            alt="Aura Design System"
                             class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Forkify — Recipes</h3>
-                    <p class="text-gray-400">A Web App to search recipes using the Forkify-API — over 1,000,000 recipes.
-                    </p>
+                    <h3 class="text-2xl font-bold text-white mb-2">Aura Design System</h3>
+                    <p class="text-gray-400">A robust, scalable Figma design system for enterprise products. Contains 150+ WCAG-accessible components, tokenized color variants, fluid layout grids, and interactive developer handoff specs.</p>
                 </a>
 
                 <!-- Project 6 -->
-                <a href="https://shantanunautiyal.github.io/Weather-Web-App/" target="_blank"
-                    class="group cursor-pointer block md:mt-16">
-                    <div
-                        class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
-                        <img src="https://images.unsplash.com/photo-1561484930-998b6a7b22e8?auto=format&fit=crop&w=800&q=80"
-                            alt="Weather Web App"
-                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Weather Web App</h3>
-                    <p class="text-gray-400">A weather application that utilizes the OpenWeatherMap API to display
-                        weather.</p>
-                </a>
-
-                <!-- Project 7 -->
                 <a href="https://dribbble.com/shots/22268356-Coffee-Roasters" target="_blank"
-                    class="group cursor-pointer block">
+                    class="group cursor-pointer block md:mt-16">
                     <div
                         class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
                         <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80"
-                            alt="Coffee Roaster"
+                            alt="Coffee Roasters Landing Page"
                             class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Coffee Roaster</h3>
-                    <p class="text-gray-400">User-centric landing page for a coffee roaster brand with seamless
-                        navigation.</p>
+                    <h3 class="text-2xl font-bold text-white mb-2">Coffee Roasters Landing Page</h3>
+                    <p class="text-gray-400">Premium B2C landing page concept featuring luxury branding, elegant typography pairing, asymmetrical grids, and an interactive coffee blend customization widget.</p>
+                </a>
+
+                <!-- Project 7 -->
+                <a href="https://dribbble.com/webkul" target="_blank"
+                    class="group cursor-pointer block">
+                    <div
+                        class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+                            alt="B2B Multivendor Seller Portal"
+                            class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Multivendor Seller Portal</h3>
+                    <p class="text-gray-400">UX architecture for supplier administration dashboards. Re-engineered bulk product catalog upload steps, added inline warning validations, and designed simple visual sales payouts maps.</p>
                 </a>
 
                 <!-- Project 8 -->
-                <a href="https://shantanu-nautiyal-portfolio.vercel.app/projects/pov-bank" target="_blank"
+                <a href="https://dribbble.com/webkul" target="_blank"
                     class="group cursor-pointer block md:mt-16">
                     <div
                         class="w-full aspect-[4/3] rounded-2xl bg-surface border border-gray-800 overflow-hidden relative mb-6">
-                        <img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=800&q=80"
-                            alt="POV Bank"
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80"
+                            alt="AureusERP Enterprise Portal"
                             class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">POV Bank</h3>
-                    <p class="text-gray-400">Demo online banking platform with preset login to explore core banking
-                        features.</p>
+                    <h3 class="text-2xl font-bold text-white mb-2">AureusERP Enterprise Portal</h3>
+                    <p class="text-gray-400">Complex B2B logistics dashboard design. Simplified supply chain flow trackers, multi-warehouse stock allocations, and dense transactional ledger records into clean, modular layouts.</p>
                 </a>
             </div>
         </div>
@@ -533,7 +616,7 @@
                 <br> extraordinary.
             </h2>
             <div class="pt-8">
-                <a href="mailto:hello@example.com"
+                <a href="mailto:aroramayank9900@gmail.com"
                     class="text-2xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 font-bold hover:opacity-80 transition-opacity">hello@mayankdesign.com</a>
             </div>
             <div class="flex justify-center space-x-6 pt-12">

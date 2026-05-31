@@ -123,3 +123,37 @@
     width: 150px;
     height: 150px;
 }
+
+/* Hamburger menu styles */
+#mobile-menu-btn.open .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#mobile-menu-btn.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+#mobile-menu-btn.open .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile menu open state */
+#mobile-menu.open {
+    display: flex !important;
+}
+
+/* Responsive project grid on small screens */
+@media (max-width: 640px) {
+    .md\:mt-16 {
+        margin-top: 0 !important;
+    }
+}
+
+/* Ensure sections have proper mobile padding */
+@media (max-width: 768px) {
+    section {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+}

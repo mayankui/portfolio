@@ -1,4 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // --- Hamburger Mobile Menu ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+        // Close menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
+        });
+    }
     // Clone Marquee items for seamless infinite scroll
     const marqueeTrack = document.querySelector(".marquee-track");
     if (marqueeTrack) {
